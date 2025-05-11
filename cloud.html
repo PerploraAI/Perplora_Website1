@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud Architecture Expertise - Course Plan | PerploraI</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #111827;
+            --accent: #f97316;
+            --light: #f1f5f9;
+            --dark: #0f172a;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #000;
+            color: #fff;
+            line-height: 1.6;
+            font-size: 18px;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--primary);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .hero {
+            padding: 60px 0;
+            background-color: #000;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(99, 102, 241, 0.2), rgba(249, 115, 22, 0.2));
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .hero h1 span {
+            color: var(--accent);
+        }
+        
+        .hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .course-plan {
+            padding: 80px 0;
+            background-color: #080808;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            color: white;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            border-radius: 2px;
+        }
+        
+        .plan-timeline {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .plan-item {
+            background: linear-gradient(145deg, #111827, #1f2937);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .plan-item h3 {
+            font-size: 24px;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+        
+        .plan-item ul {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 16px;
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+        
+        .plan-item ul li {
+            margin-bottom: 5px;
+        }
+        
+        .tools-section {
+            padding: 80px 0;
+            background-color: #080808;
+        }
+        
+        .tools-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .tool-item {
+            display: flex;
+            align-items: center;
+            background: linear-gradient(145deg, #111827, #1f2937);
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .tool-item i {
+            font-size: 40px;
+            color: var(--accent);
+            margin-right: 15px;
+        }
+        
+        .tool-item span {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .section-title h2 {
+                font-size: 28px;
+            }
+            
+            .plan-item h3 {
+                font-size: 20px;
+            }
+            
+            .plan-item ul {
+                font-size: 14px;
+            }
+            
+            .tool-item i {
+                font-size: 30px;
+            }
+            
+            .tool-item span {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">Perplora<span>I</span></a>
+                <ul class="nav-links">
+                    <li><a href="index.html#courses">Courses</a></li>
+                    <li><a href="index.html#features">Why Choose Us</a></li>
+                    <li><a href="index.html#community">Community</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Cloud Architecture <span>Expertise</span></h1>
+            <p>Master cloud computing with AWS, Azure, and GCP, focusing on building scalable, secure, and high-performance applications.</p>
+        </div>
+    </section>
+
+    <section class="course-plan">
+        <div class="container">
+            <div class="section-title">
+                <h2>Course Plan</h2>
+            </div>
+            <div class="plan-timeline">
+                <div class="plan-item">
+                    <h3>Week 1: Introduction to Cloud Computing</h3>
+                    <ul>
+                        <li>Overview of cloud models (IaaS, PaaS, SaaS)</li>
+                        <li>Benefits of cloud computing</li>
+                        <li>Major providers: AWS, Azure, GCP</li>
+                    </ul>
+                </div>
+                <div class="plan-item">
+                    <h3>Week 2-3: AWS Fundamentals</h3>
+                    <ul>
+                        <li>EC2 for compute services</li>
+                        <li>S3 for storage solutions</li>
+                        <li>RDS and DynamoDB for databases</li>
+                        <li>VPC and networking</li>
+                        <li>IAM for security</li>
+                    </ul>
+                </div>
+                <div class="plan-item">
+                    <h3>Week 4-5: Azure Essentials</h3>
+                    <ul>
+                        <li>Azure Virtual Machines</li>
+                        <li>Blob Storage for data</li>
+                        <li>Azure SQL Database</li>
+                        <li>Networking with Azure VNet</li>
+                        <li>Security best practices</li>
+                    </ul>
+                </div>
+                <div class="plan-item">
+                    <h3>Week 6-7: Google Cloud Platform (GCP)</h3>
+                    <ul>
+                        <li>Compute Engine for VMs</li>
+                        <li>Cloud Storage for data</li>
+                        <li>BigQuery for analytics</li>
+                        <li>Kubernetes Engine for orchestration</li>
+                        <li>GCP networking</li>
+                    </ul>
+                </div>
+                <div class="plan-item">
+                    <h3>Week 8-9: Cloud Architecture Design</h3>
+                    <ul>
+                        <li>Designing highly available systems</li>
+                        <li>Building scalable architectures</li>
+                        <li>Implementing security with AWS Shield and WAF</li>
+                        <li>Cost optimization strategies</li>
+                    </ul>
+                </div>
+                <div class="plan-item">
+                    <h3>Week 10-11: Certification Preparation</h3>
+                    <ul>
+                        <li>AWS Certified Solutions Architect</li>
+                        <li>Azure Fundamentals</li>
+                        <li>GCP Associate Cloud Engineer</li>
+                        <li>Practice exams and case studies</li>
+                    </ul>
+                </div>
+                <div class="plan-item">
+                    <h3>Week 12: Capstone Project</h3>
+                    <ul>
+                        <li>Design a multi-cloud architecture</li>
+                        <li>Deploy a scalable application on AWS</li>
+                        <li>Optimize for cost and performance</li>
+                        <li>Present and review with instructors</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="tools-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>We Will Cover Tools</h2>
+            </div>
+            <div class="tools-list">
+                <div class="tool-item">
+                    <i class="fab fa-aws"></i>
+                    <span>AWS EC2</span>
+                </div>
+                <div class="tool-item">
+                    <i class="fab fa-aws"></i>
+                    <span>AWS S3</span>
+                </div>
+                <div class="tool-item">
+                    <i class="fab fa-aws"></i>
+                    <span>AWS RDS</span>
+                </div>
+                <div class="tool-item">
+                    <i class="fab fa-aws"></i>
+                    <span>AWS VPC</span>
+                </div>
+                <div class="tool-item">
+                    <i class="fab fa-aws"></i>
+                    <span>AWS IAM</span>
+                </div>
+                <div class="tool-item">
+                    <i class="fab fa-aws"></i>
+                    <span>AWS CloudFormation</span>
+                </div>
+                <div class="tool-item">
+                    <i class="fab fa-aws"></i>
+                    <span>AWS CloudWatch</span>
+                </div>
+                <div class="tool-item">
+                    <i class="fas fa-cloud"></i>
+                    <span>Azure Virtual Machines</span>
+                </div>
+                <div class="tool-item">
+                    <i class="fas fa-cloud"></i>
+                    <span>Azure Blob Storage</span>
+                </div>
+                <div class="tool-item">
+                    <i class="fas fa-cloud"></i>
+                    <span>Azure SQL Database</span>
+                </div>
+                <div class="tool-item">
+                    <i class="fas fa-cloud"></i>
+                    <span>GCP Compute Engine</span>
+                </div>
+                <div class="tool-item">
+                    <i class="fas fa-cloud"></i>
+                    <span>GCP Cloud Storage</span>
+                </div>
+                <div class="tool-item">
+                    <i class="fas fa-cloud"></i>
+                    <span>GCP BigQuery</span>
+                </div>
+                <div class="tool-item">
+                    <i class="fas fa-cubes"></i>
+                    <span>Kubernetes</span>
+                </div>
+                <div class="tool-item">
+                    <i class="fas fa-tools"></i>
+                    <span>Terraform</span>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

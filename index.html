@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PerploraI - Master Industry-Standard AI & Tech Courses</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #111827;
+            --accent: #f97316;
+            --light: #f1f5f9;
+            --dark: #0f172a;
+            --success: #10b981;
+            --info: #3b82f6;
+            --warning: #f59e0b;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #000;
+            color: #fff;
+            line-height: 1.6;
+            font-size: 18px;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px; /* Consistent max-width */
+            margin: 0 auto;
+            padding: 0 20px;
+            box-sizing: border-box; /* Ensure padding doesn't affect width */
+        }
+        
+        header {
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--primary);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 18 Void(0) 18px;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(99, 102, 241, 0.4);
+        }
+        
+        .btn-accent {
+            background-color: var(--accent);
+        }
+        
+        .btn-accent:hover {
+            background-color: #ea580c;
+            box-shadow: 0 5px 15px rgba(249, 115, 22, 0.4);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            font-size: 16px;
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .hero {
+            padding: 100px 0;
+            background-color: #000;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow-x: hidden; /* Prevent horizontal overflow */
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(99, 102, 241, 0.2), rgba(249, 115, 22, 0.2));
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .profile-image {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            margin: 0 auto 30px;
+            border: 4px solid var(--primary);
+            overflow: hidden;
+            box-shadow: 0 0 30px rgba(99, 102, 241, 0.6);
+        }
+        
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .hero h1 {
+            font-size: 56px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            min-height: 140px; /* Reserve space for dynamic text */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .hero h1 span {
+            color: var(--primary);
+            display: block;
+        }
+        
+        .hero h1 .accent {
+            color: var(--accent);
+        }
+        
+        .hero p {
+            font-size: 22px;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .courses {
+            padding: 100px 0;
+            background-color: #080808;
+            overflow-x: hidden; /* Prevent horizontal overflow */
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 48px;
+            color: white;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            border-radius: 2px;
+        }
+        
+        .section-title p {
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 20px;
+        }
+        
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 350px)); /* Fixed column width */
+            gap: 30px;
+            justify-content: center; /* Center grid items */
+        }
+        
+        .course-card {
+            background: linear-gradient(145deg, #111827, #1f2937);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .course-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            z-index: 2;
+        }
+        
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+        
+        .course-image {
+            height: 200px;
+            background: rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 16 / 9; /* Maintain consistent aspect ratio */
+        }
+        
+        .course-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .course-card:hover .course-image img {
+            transform: scale(1.05);
+        }
+        
+        .course-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 30px 20px 20px;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+        }
+        
+        .course-tag {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+        
+        .course-content {
+            padding: 25px;
+        }
+        
+        .course-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: white;
+        }
+        
+        .course-card p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+        
+        .course-meta {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 14px;
+            align-items: center;
+        }
+        
+        .features {
+            padding: 100px 0;
+            background-color: #0c0c0c;
+            overflow-x: hidden; /* Prevent horizontal overflow */
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .feature-card {
+            padding: 40px 30px;
+            border-radius: 16px;
+            background: linear-gradient(145deg, #111827, #1f2937);
+            text-align: center;
+            transition: transform 0.3s ease;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .feature-icon {
+            font-size: 50px;
+            margin-bottom: 25px;
+            height: 80px;
+            width: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            border-radius: 50%;
+            margin: 0 auto 25px;
+            color: white;
+        }
+        
+        .feature-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: white;
+        }
+        
+        .feature-card p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 18px;
+        }
+        
+        .cta {
+            padding: 100px 0;
+            background: linear-gradient(45deg, var(--primary-dark), var(--primary));
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow-x: hidden; /* Prevent horizontal overflow */
+        }
+        
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('/api/placeholder/1200/600') center/cover;
+            opacity: 0.1;
+            z-index: 1;
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .cta h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta p {
+            font-size: 20px;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .btn-cta {
+            background-color: var(--accent);
+            box-shadow: 0 5px 15px rgba(249, 115, 22, 0.4);
+            padding: 15px 30px;
+            font-size: 18px;
+        }
+        
+        .btn-cta:hover {
+            background-color: #ea580c;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(249, 115, 22, 0.5);
+        }
+        
+        footer {
+            background-color: #080808;
+            color: white;
+            padding: 80px 0 30px;
+            overflow-x: hidden; /* Prevent horizontal overflow */
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        
+        .footer-column h3 {
+            font-size: 22px;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 15px;
+            color: white;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            border-radius: 2px;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+            font-size: 18px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+            display: block;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 16px;
+        }
+        
+        .grid-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 20px 20px;
+            z-index: 1;
+            pointer-events: none;
+            contain: strict; /* Prevent overflow */
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 15px; /* Slightly reduce padding for mobile */
+            }
+            
+            .hero h1 {
+                font-size: 44px;
+                min-height: 110px; /* Adjust for smaller screens */
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .section-title h2 {
+                font-size: 36px;
+            }
+            
+            .section-title p {
+                font-size: 16px;
+            }
+            
+            .courses-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Flexible for mobile */
+            }
+            
+            .course-card h3 {
+                font-size: 20px;
+            }
+            
+            .course-card p {
+                font-size: 16px;
+            }
+            
+            .feature-card h3 {
+                font-size: 20px;
+            }
+            
+            .feature-card p {
+                font-size: 16px;
+            }
+            
+            .cta h2 {
+                font-size: 36px;
+            }
+            
+            .cta p {
+                font-size: 16px;
+            }
+            
+            .footer-column h3 {
+                font-size: 18px;
+            }
+            
+            .footer-links li {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-bg"></div>
+    
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">Perplora<span>AI</span></a>
+                <ul class="nav-links">
+                    <li><a href="#courses">Courses</a></li>
+                    <li><a href="#features">Why Choose Us</a></li>
+                    <li><a href="#community">Community</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="grid-bg"></div>
+        <div class="container hero-content">
+            <div class="profile-image">
+                <img src="images/logo.png" alt="Instructor Profile" width="180" height="180">
+            </div>
+            <h1>Master <span id="course-name">Data Science & AI</span> <br><span>with <span class="accent">PerploraI</span></span></h1>
+            <p>Access comprehensive courses, insightful tutorials, and personalized support to advance your skills.</p>
+            <a href="#community" class="btn btn-cta">Join The Community</a>
+        </div>
+    </section>
+
+    <section class="courses" id="courses">
+        <div class="container">
+            <div class="section-title">
+                <h2>Featured Courses</h2>
+                <p>Master industry-standard skills with our cutting-edge curriculum</p>
+            </div>
+            <div class="courses-grid">
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="images/ChatGPT Image May 11, 2025, 12_33_32 PM.png" alt="Complete AI Course" width="350" height="200">
+                        <div class="course-overlay">
+                            <span class="course-tag">Bestseller</span>
+                        </div>
+                    </div>
+                    <div class="course-content">
+                        <h3>Complete AI Masterclass</h3>
+                        <p>Comprehensive course covering AI fundamentals to advanced implementations with real-world projects.</p>
+                        <div class="course-meta">
+                            <span><i class="fas fa-clock"></i> 12 weeks</span>
+                            <a href="ai.html" target="_blank" class="btn btn-outline">Course Plan</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="images/ChatGPT Image May 11, 2025, 12_16_24 PM.png" alt="Generative AI" width="350" height="200">
+                        <div class="course-overlay">
+                            <span class="course-tag">New</span>
+                        </div>
+                    </div>
+                    <div class="course-content">
+                        <h3>Generative AI Specialization</h3>
+                        <p>Master generative models including transformers, diffusion models, and large language models.</p>
+                        <div class="course-meta">
+                            <span><i class="fas fa-clock"></i> 8 weeks</span>
+                            <a href="genai.html" target="_blank" class="btn btn-outline">Course Plan</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="images/agent.avif" alt="Agentic AI" width="350" height="200">
+                        <div class="course-overlay">
+                            <span class="course-tag">Advanced</span>
+                        </div>
+                    </div>
+                    <div class="course-content">
+                        <h3>Agentic AI Development</h3>
+                        <p>Build autonomous AI agents that can reason, plan, and execute complex tasks through multi-step processes.</p>
+                        <div class="course-meta">
+                            <span><i class="fas fa-clock"></i> 10 weeks</span>
+                            <a href="agentic.html" target="_blank" class="btn btn-outline">Course Plan</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="images/dev.jpg" alt="Advanced DevOps" width="350" height="200">
+                        <div class="course-overlay">
+                            <span class="course-tag">Practical</span>
+                        </div>
+                    </div>
+                    <div class="course-content">
+                        <h3>Advanced DevOps Mastery</h3>
+                        <p>Learn CI/CD pipelines, infrastructure as code, containerization, and modern DevOps practices.</p>
+                        <div class="course-meta">
+                            <span><i class="fas fa-clock"></i> 8 weeks</span>
+                            <a href="devops.html" target="_blank" class="btn btn-outline">Course Plan</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="images/cloud.jpg" alt="Cloud Architecture" width="350" height="200">
+                        <div class="course-overlay">
+                            <span class="course-tag">Essential</span>
+                        </div>
+                    </div>
+                    <div class="course-content">
+                        <h3>Cloud Architecture Expertise</h3>
+                        <p>Comprehensive training on AWS, Azure, and GCP with industry certifications preparation.</p>
+                        <div class="course-meta">
+                            <span><i class="fas fa-clock"></i> 12 weeks</span>
+                            <a href="cloud.html" target="_blank" class="btn btn-outline">Course Plan</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="images/ChatGPT Image May 11, 2025, 12_43_26 PM.png" alt="Machine Learning Operations" width="350" height="200">
+                        <div class="course-overlay">
+                            <span class="course-tag">In-Demand</span>
+                        </div>
+                    </div>
+                    <div class="course-content">
+                        <h3>Machine Learning Operations</h3>
+                        <p>Build production-ready ML systems with best practices for deployment, monitoring, and scaling.</p>
+                        <div class="course-meta">
+                            <span><i class="fas fa-clock"></i> 9 weeks</span>
+                            <a href="mlops.html" target="_blank" class="btn btn-outline">Course Plan</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose Our Platform</h2>
+                <p>We provide an exceptional learning experience tailored to modern industry needs</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>Cutting-Edge Curriculum</h3>
+                    <p>Our courses are continuously updated to reflect the latest advancements in AI, cloud computing, and software development.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Hands-On Projects</h3>
+                    <p>Build a professional portfolio with real-world projects that solve actual industry problems and showcase your skills.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3>Industry Recognition</h3>
+                    <p>Earn certificates that are respected by top companies and align with industry standards and best practices.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Supportive Community</h3>
+                    <p>Join a vibrant community of learners, instructors, and industry professionals who support each other's growth.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta" id="community">
+        <div class="grid-bg"></div>
+        <div class="container cta-content">
+            <h2>Join Our Community Today!</h2>
+            <p>Connect with peers, access exclusive content, participate in live coding sessions, and accelerate your career growth.</p>
+            <a href="#" class="btn btn-cta">Join The Community</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>PerploraI</h3>
+                    <p>Empowering the next generation of AI and tech professionals with industry-leading education and community support.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Courses</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Complete AI Masterclass</a></li>
+                        <li><a href="#">Generative AI Specialization</a></li>
+                        <li><a href="#">Agentic AI Development</a></li>
+                        <li><a href="#">Advanced DevOps Mastery</a></li>
+                        <li><a href="#">Cloud Architecture Expertise</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Podcasts</a></li>
+                        <li><a href="#">Free Tutorials</a></li>
+                        <li><a href="#">Career Guide</a></li>
+                        <li><a href="#">Community Forum</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Get In Touch</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-envelope"></i> perploraaitechnologies@gmail.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Hyderabad</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© 2025 PerploraI. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const courseNames = [
+            "Data Science & AI",
+            "Generative AI",
+            "Agentic AI",
+            "DevOps",
+            "MLOps",
+            "Machine Learning",
+            "Cloud Architecture"
+        ];
+        let currentIndex = 0;
+        const courseNameElement = document.getElementById("course-name");
+
+        function updateCourseName() {
+            courseNameElement.textContent = courseNames[currentIndex];
+            currentIndex = (currentIndex + 1) % courseNames.length;
+        }
+
+        updateCourseName();
+        setInterval(updateCourseName, 3000);
+    </script>
+</body>
+</html>

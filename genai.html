@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generative AI Specialization - Course Plan | PerploraI</title>
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #111827;
+            --accent: #f97316;
+            --light: #f1f5f9;
+            --dark: #0f172a;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #000;
+            color: #fff;
+            line-height: 1.6;
+            font-size: 18px;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--primary);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .hero {
+            padding: 60px 0;
+            background-color: #000;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(99, 102, 241, 0.2), rgba(249, 115, 22, 0.2));
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .hero h1 span {
+            color: var(--accent);
+        }
+        
+        .hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .course-plan {
+            padding: 80px 0;
+            background-color: #080808;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            color: white;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            border-radius: 2px;
+        }
+        
+        .plan-timeline {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .plan-item {
+            background: linear-gradient(145deg, #111827, #1f2937);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .plan-item h3 {
+            font-size: 24px;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+        
+        .plan-item ul {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 16px;
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+        
+        .plan-item ul li {
+            margin-bottom: 5px;
+        }
+        
+        .tools-section {
+            padding: 80px 0;
+            background-color: #080808;
+        }
+        
+        .tools-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .tool-item {
+            display: flex;
+            align-items: center;
+            background: linear-gradient(145deg, #111827, #1f2937);
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .tool-item img {
+            width: 40px;
+            height: 40px;
+            margin-right: 15px;
+        }
+        
+        .tool-item .monochrome {
+            filter: grayscale(100%);
+        }
+        
+        .tool-item span {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .section-title h2 {
+                font-size: 28px;
+            }
+            
+            .plan-item h3 {
+                font-size: 20px;
+            }
+            
+            .plan-item ul {
+                font-size: 14px;
+            }
+            
+            .tool-item img {
+                width: 30px;
+                height: 30px;
+            }
+            
+            .tool-item span {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">Perplora<span>I</span></a>
+                <ul class="nav-links">
+                    <li><a href="index.html#courses">Courses</a></li>
+                    <li><a href="index.html#features">Why Choose Us</a></li>
+                    <li><a href="index.html#community">Community</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Generative AI <span>Specialization</span></h1>
+            <p>Master generative models with hands-on projects in chatbots, API applications, and creative AI using LangChain, LlamaIndex, and more.</p>
+        </div>
+    </section>
+
+    <section class="course-plan">
+        <div class="container">
+            <div class="section-title">
+                <h2>Course Plan</h2>
+            </div>
+            <div class="plan-timeline">
+                <div class="plan-item">
+                    <h3>Week 1: Fundamentals of Generative Models</h3>
+                    <ul>
+                        <li>Introduction to Generative AI: GANs, VAEs, and diffusion models</li>
+                        <li>Applications in text, image, and music generation</li>
+                    </ul>
+                </div>
+                <div class="plan-item">
+                    <h3>Week 2: Transformers and Attention Mechanisms</h3>
+                    <ul>
+                        <li>Deep dive into transformer architecture and self-attention</li>
+                        <li>Hands-on: Building a simple transformer model with PyTorch</li>
+                    </ul>
+                </div>
+                <div class="plan-item">
+                    <h3>Week 3: Diffusion Models for Image Generation</h3>
+                    <ul>
+                        <li>Understanding diffusion models and their mechanics</li>
+                        <li>Implementing image generation with Stable Diffusion</li>
+                    </ul>
+                </div>
+                <div class="plan-item">
+                    <h3>Week 4: Large Language Models (LLMs) - Part 1</h3>
+                    <ul>
+                        <li>Overview of LLMs: GPT, BERT, and LLaMA</li>
+                        <li>Pre-training and fine-tuning techniques using Hugging Face</li>
+                    </ul>
+                </div>
+                <div class="plan-item">
+                    <h3>Week 5: Fine-Tuning LLMs</h3>
+                    <ul>
+                        <li>Fine-tuning GPT models on custom datasets with AWS SageMaker</li>
+                        <li>Optimizing model performance for specific tasks</li>
+                    </ul>
+                </div>
+                <div class="plan-item">
+                    <h3>Week 6: Introduction to LangChain</h3>
+                    <ul>
+                        <li>Building generative AI applications with LangChain</li>
+                        <li>Creating a simple text generation pipeline</li>
+                    </ul>
+                </div>
+                <div class="plan-item">
+                    <h3>Week 7: Retrieval-Augmented Generation (RAG)</h3>
+                    <ul>
+                        <li>Understanding RAG and its role in enhancing LLMs</li>
+                        <li>Implementing RAG with LangChain and FAISS for knowledge retrieval</li>
+                    </ul>
+                </div>
+                <div class="plan-item">
+                    <h3>Week 8: LlamaIndex for Data-Augmented Generation</h3>
+                    <ul>
+                        <li>Using LlamaIndex to index and retrieve data for generative tasks</li>
+                        <li>Building a Q&A system with LlamaIndex and LLaMA</li>
+                    </ul>
+                </div>
+                <div class="plan-item">
+                    <h3>Week 9: Text-to-Image Generation with CLIP</h3>
+                    <ul>
+                        <li>Combining CLIP with diffusion models for text-to-image generation</li>
+                        <li>Creating a web app with Streamlit to showcase results</li>
+                    </ul>
+                </div>
+                <div class="plan-item">
+                    <h3>Week 10: Ethical Considerations in Generative AI</h3>
+                    <ul>
+                        <li>Addressing bias, fairness, and ethical issues in generative models</li>
+                        <li>Case studies on responsible AI deployment</li>
+                    </ul>
+                </div>
+                <div class="plan-item">
+                    <h3>Week 11: Project - Chatbot Development</h3>
+                    <ul>
+                        <li>Build a conversational chatbot using LangChain and RAG</li>
+                        <li>Integrate LlamaIndex for knowledge retrieval from custom documents</li>
+                        <li>Deploy the chatbot as a web app using Flask API</li>
+                    </ul>
+                </div>
+                <div class="plan-item">
+                    <h3>Week 12: Generative AI with Vertex AI</h3>
+                    <ul>
+                        <li>Deploying generative models on Google Cloud with Vertex AI</li>
+                        <li>Using Gemini models for advanced text generation</li>
+                    </ul>
+                </div>
+                <div class="plan-item">
+                    <h3>Week 13: API Development with Flask</h3>
+                    <ul>
+                        <li>Creating a Flask API to serve generative AI models</li>
+                        <li>Building an endpoint for text generation with fine-tuned LLMs</li>
+                    </ul>
+                </div>
+                <div class="plan-item">
+                    <h3>Week 14: Project - Text-to-Image API Application</h3>
+                    <ul>
+                        <li>Develop a Flask API for text-to-image generation using Stable Diffusion</li>
+                        <li>Integrate the API with a Streamlit frontend for user interaction</li>
+                        <li>Deploy the application on AWS or GCP</li>
+                    </ul>
+                </div>
+                <div class="plan-item">
+                    <h3>Week 15: Capstone Project - Creative AI System</h3>
+                    <ul>
+                        <li>Design a generative AI system for art or music generation</li>
+                        <li>Use diffusion models for art generation and LLMs for music lyrics</li>
+                        <li>Deploy the system with a Flask API and Streamlit interface</li>
+                    </ul>
+                </div>
+                <div class="plan-item">
+                    <h3>Week 16: Final Review and Deployment</h3>
+                    <ul>
+                        <li>Optimize projects for production deployment</li>
+                        <li>Review and present final solutions</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="tools-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>We Will Cover Tools</h2>
+            </div>
+            <div class="tools-list">
+                <div class="tool-item">
+                    <img src="https://lobehub.com/icons/aws-sagemaker.svg" alt="AWS SageMaker" class="monochrome">
+                    <span>AWS SageMaker</span>
+                </div>
+                <div class="tool-item">
+                    <img src="https://lobehub.com/icons/vertex-ai.svg" alt="Vertex AI">
+                    <span>Vertex AI</span>
+                </div>
+                <div class="tool-item">
+                    <img src="images\huggingface-color.png" alt="Hugging Face">
+                    <span>Hugging Face</span>
+                </div>
+                <div class="tool-item">
+                    <img src="https://lobehub.com/icons/stable-diffusion.svg" alt="Stable Diffusion" class="monochrome">
+                    <span>Stable Diffusion</span>
+                </div>
+                <div class="tool-item">
+                    <img src="https://lobehub.com/icons/clip.svg" alt="CLIP" class="monochrome">
+                    <span>CLIP</span>
+                </div>
+                <div class="tool-item">
+                    <img src="https://lobehub.com/icons/pytorch.svg" alt="PyTorch" class="monochrome">
+                    <span>PyTorch</span>
+                </div>
+                <div class="tool-item">
+                    <img src="https://lobehub.com/icons/tensorflow.svg" alt="TensorFlow" class="monochrome">
+                    <span>TensorFlow</span>
+                </div>
+                <div class="tool-item">
+                    <img src="https://lobehub.com/icons/openai.svg" alt="GPT Models" style="background-color: #000;">
+                    <span>openai Models</span>
+                </div>
+                <div class="tool-item">
+                    <img src="https://lobehub.com/icons/bert.svg" alt="BERT" class="monochrome">
+                    <span>Gemini</span>
+                </div>
+                                <div class="tool-item">
+                    <img src="https://lobehub.com/icons/bert.svg" alt="BERT" class="monochrome">
+                    <span>Deepseek</span>
+                </div>
+                <div class="tool-item">
+                    <img src="images\mata-text(1).png" alt="LLaMA" class="monochrome">
+                    <span>LLaMA</span>
+                </div>
+                <div class="tool-item">
+                    <img src="https://lobehub.com/icons/langchain.svg" alt="LangChain" class="monochrome">
+                    <span>LangChain</span>
+                </div>
+                <div class="tool-item">
+                    <img src="https://lobehub.com/icons/llamaindex.svg" alt="LlamaIndex" class="monochrome">
+                    <span>LlamaIndex</span>
+                </div>
+                <div class="tool-item">
+                    <img src="https://lobehub.com/icons/faiss.svg" alt="FAISS" class="monochrome">
+                    <span>FAISS</span>
+                </div>
+                <div class="tool-item">
+                    <img src="https://lobehub.com/icons/chromadb.svg" alt="ChromaDB" class="monochrome">
+                    <span>ChromaDB</span>
+                </div>
+                <div class="tool-item">
+                    <img src="https://lobehub.com/icons/flask.svg" alt="Flask API" class="monochrome">
+                    <span>Flask API</span>
+                </div>
+                <div class="tool-item">
+                    <img src="https://lobehub.com/icons/streamlit.svg" alt="Streamlit" class="monochrome">
+                    <span>Streamlit</span>
+                </div>
+                <div class="tool-item">
+                    <img src="https://lobehub.com/icons/gemini.svg" alt="Gemini Pro" style="background-color: #1C69FF;">
+                    <span>Gemini Pro</span>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
